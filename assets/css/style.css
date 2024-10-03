@@ -108,14 +108,14 @@ input::placeholder {
   font-size: 1rem;
 }
 
-.tbody .main {
+.tbody .table-data {
   display: flex;
   justify-content: space-between;
   padding: 5px 3px;
   font-size: 1rem;
 }
 
-.main p {
+.table-data p {
   flex: 1;
   text-align: center;
   justify-content: center;
