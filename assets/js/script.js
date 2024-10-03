@@ -26,27 +26,27 @@ document.getElementById('imcForm').addEventListener('submit', function (e) {
   if (bmi < 18.5) {
     classificacao = "Abaixo do peso";
     status.style.color = "red";
-    mensagemMotivacional = "Aconselho que coma um pouco mais";
+    mensagemMotivacional = "Você está abaixo do peso. Uma alimentação equilibrada pode ajudar a melhorar sua saúde!";
   } else if (bmi >= 18.5 && bmi < 24.9) {
     classificacao = "Peso normal";
     status.style.color = "green";
-    mensagemMotivacional = "Parabéns, continue assim!";
+    mensagemMotivacional = "Parabéns! Você está com o peso ideal. Continue com um estilo de vida saudável!";
   } else if (bmi >= 25 && bmi < 29.9) {
     classificacao = "Sobrepeso";
     status.style.color = "orange";
-    mensagemMotivacional = "Melhore sua alimentação, você consegue!";
+    mensagemMotivacional = "Cuidado! Você está com sobrepeso. Um pouco de atividade física pode fazer a diferença.";
   } else if (bmi >= 30 && bmi < 34.9) {
     classificacao = "Obesidade grau I";
     status.style.color = "red";
-    mensagemMotivacional = "Cuidado, você está propenso a ter diabetes e hipertensão";
+    mensagemMotivacional = "Você está com obesidade grau I. Pequenos ajustes na alimentação e no exercício podem ajudar!";
   } else if (bmi >= 35 && bmi < 39.9) {
     classificacao = "Obesidade grau II";
     status.style.color = "red";
-    mensagemMotivacional = "Cuidado, Sua família precisa de você, se cuide";
+    mensagemMotivacional = "Você está com obesidade grau II. Procure orientação médica para alcançar um peso mais saudável.";
   } else {
     classificacao = "Obesidade grau III";
     status.style.color = "red";
-    mensagemMotivacional = "Bariátrica, AGORA!";
+    mensagemMotivacional = "Você está com obesidade grau III. É importante procurar ajuda profissional para melhorar sua saúde.";
   }
 
   // Atualiza o resultado na interface
