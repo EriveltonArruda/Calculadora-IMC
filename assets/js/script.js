@@ -1,5 +1,5 @@
 // Selecionando Elementos
-let heightEl = document.querySelector('#altura');
+let heightEl = document.querySelector('#altura')
 let weightEl = document.querySelector('#peso');
 let statusEl = document.querySelector(".result");
 let showHide = document.querySelector(".result-container");
@@ -9,8 +9,8 @@ let form = document.querySelector('#imcForm');
 
 // Funções
 function bmiCalc() {
-  // Esconde ou mostra a tabela
-  showHide.classList.toggle("hide");
+  // Esconde a tabela
+  showHide.classList.remove("hide");
   let bmi = Number(weightEl.value) / Number(heightEl.value) ** 2;
 
   // Eventos
@@ -53,11 +53,11 @@ function bmiCalc() {
   }
 
   // Atualiza o resultado na interface
-  document.querySelector('.result').textContent = `${ bmi.toFixed(2) } (${ classificacao }) `;
+  document.querySelector('.result').textContent = `${bmi.toFixed(2)} (${classificacao}) `;
 }
 
 // Espera o formulário ser enviado
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function(e) {
   // Evita que a página seja recarregada ao enviar o formulário
   e.preventDefault();
   bmiCalc();
