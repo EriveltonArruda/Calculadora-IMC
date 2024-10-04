@@ -1,72 +1,65 @@
-let resetar = document.querySelector("#reset");
+// Selecionando Elementos
+let height = document.querySelector('#altura').value;
+let weight = document.querySelector('#peso').value;
+let resultBmi = document.querySelector(".result");
+let showHide = document.querySelector(".result-container");
+let resultP = document.querySelector(".resultado");
+let newP = document.createElement("p");
 
-function cleanInputs() {
-  height.value = "";
-  weight.value = "";
+// Funções
+function calculaImc() {
+  return weight / (height * height);
 }
 
-resetar.addEventListener("click", (e) => {
-  e.preventDefault();
-  cleanInputs();
-})
+// Teste
+let bmi = calculaImc();
+
+// Eventos
+// Exibe o resultado com duas casas decimais
+document.querySelector('.result').textContent = bmi.toFixed(2);
 
 // Espera o formulário ser enviado
 document.getElementById('imcForm').addEventListener('submit', function (e) {
   // Evita que a página seja recarregada ao enviar o formulário
   e.preventDefault();
 
-  // Selecionando Elementos
-  let height = document.querySelector('#altura').value;
-  let weight = document.querySelector('#peso').value;
-  let status = document.querySelector(".result");
-  let show = document.querySelector(".result-container");
-  let resultadoP = document.querySelector(".resultado");
-  let newP = document.createElement("p");
-
-
-
   // Esconde ou mostra a tabela
-  show.classList.toggle("hide")
-
-  // Calcula o IMC
-  let bmi = weight / (height * height);
-
-  // Exibe o resultado com duas casas decimais
-  document.querySelector('.result').textContent = bmi.toFixed(2);
+  showHide.classList.toggle("hide")
 
   // Classificação do IMC
   let classificacao = "";
   // let mensagemMotivacional = ""
   if (bmi < 18.5) {
     classificacao = "Abaixo do peso";
-    status.style.color = "red";
-    newP.innerText = "Você está abaixo do peso. Uma alimentação equilibrada pode ajudar a melhorar sua saúde!";
-    resultadoP.appendChild(newP);
+    resultBmi.style.color = "red";
+    newP.innerText = "Você está abaixo do peso ideal. Que tal explorar opções de uma alimentação mais nutritiva para se sentir mais forte e saudável?";
+    resultP.appendChild(newP);
   } else if (bmi >= 18.5 && bmi < 24.9) {
     classificacao = "Peso normal";
-    status.style.color = "green";
-    newP.innerText = "Parabéns! Você está com o peso ideal. Continue com um estilo de vida saudável!";
-    resultadoP.appendChild(newP);
+    resultBmi.style.color = "green";
+    newP.innerText = "Parabéns, você está com um peso saudável! Continue com seus bons hábitos.";
+    resultP.appendChild(newP);
   } else if (bmi >= 25 && bmi < 29.9) {
     classificacao = "Sobrepeso";
-    status.style.color = "orange";
-    newP.innerText = "Cuidado! Você está com sobrepeso. Um pouco de atividade física pode fazer a diferença.";
-    resultadoP.appendChild(newP);
+    resultBmi.style.color = "orange";
+    newP.innerText = "Você está um pouco acima do peso. Pequenas mudanças em sua rotina podem trazer grandes benefícios para sua saúde e bem-estar.";
+    resultP.appendChild(newP);
   } else if (bmi >= 30 && bmi < 34.9) {
     classificacao = "Obesidade grau I";
-    status.style.color = "red";
-    newP.innerText = "Você está com obesidade grau I. Pequenos ajustes na alimentação e no exercício podem ajudar!";
-    resultadoP.appendChild(newP);
+    resultBmi.style.color = "red";
+    newP.innerText = "Cuidar da sua saúde agora pode melhorar muito sua qualidade de vida no futuro.";
+    resultP.appendChild(newP);
   } else if (bmi >= 35 && bmi < 39.9) {
     classificacao = "Obesidade grau II";
-    status.style.color = "red";
-    newP.innerText = "Você está com obesidade grau II. Procure orientação médica para alcançar um peso mais saudável.";
-    resultadoP.appendChild(newP);
+    resultBmi.style.color = "red";
+    newP.innerText = "É um bom momento para procurar apoio e adotar hábitos mais saudáveis.";
+    resultP.appendChild(newP);
   } else {
+    console.log(calculaImc())
     classificacao = "Obesidade grau III";
-    status.style.color = "red";
-    newP.innerText = "Você está com obesidade grau III. É importante procurar ajuda profissional para melhorar sua saúde.";
-    resultadoP.appendChild(newP);
+    resultBmi.style.color = "red";
+    newP.innerText = "Sua saúde merece atenção especial. Que tal buscar orientação para cuidar de você?";
+    resultP.appendChild(newP);
   }
 
   // Atualiza o resultado na interface
