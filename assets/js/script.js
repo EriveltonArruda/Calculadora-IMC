@@ -11,7 +11,16 @@ let form = document.querySelector('#imcForm');
 function bmiCalc() {
   // Esconde a tabela
   showHide.classList.remove("hide");
-  let bmi = Number(weightEl.value) / Number(heightEl.value) ** 2;
+
+  let bmi = "";
+
+  if (Number(heightEl.value) > 3) {
+    heightEl.value = Number(heightEl.value) / 100;
+  }
+
+  bmi = Number(weightEl.value) / Number(heightEl.value) ** 2;
+
+  console.log(bmi);
 
   // Eventos
   // Exibe o resultado com duas casas decimais
