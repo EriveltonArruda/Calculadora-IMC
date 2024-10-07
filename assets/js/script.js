@@ -12,15 +12,11 @@ function bmiCalc() {
   // Esconde a tabela
   showHide.classList.remove("hide");
 
-  let bmi = "";
-
-  if (Number(heightEl.value) > 3) {
+  if (heightEl.value > 3) {
     heightEl.value = Number(heightEl.value) / 100;
   }
 
-  bmi = Number(weightEl.value) / Number(heightEl.value) ** 2;
-
-  console.log(bmi);
+  let bmi = Number(weightEl.value) / Number(heightEl.value) ** 2;
 
   // Eventos
   // Exibe o resultado com duas casas decimais
@@ -62,11 +58,11 @@ function bmiCalc() {
   }
 
   // Atualiza o resultado na interface
-  document.querySelector('.result').textContent = `${bmi.toFixed(2)} (${classificacao}) `;
+  document.querySelector('.result').textContent = `${ bmi.toFixed(2) } (${ classificacao }) `;
 }
 
 // Espera o formulário ser enviado
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
   // Evita que a página seja recarregada ao enviar o formulário
   e.preventDefault();
   bmiCalc();
