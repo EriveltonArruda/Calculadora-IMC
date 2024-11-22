@@ -12,6 +12,7 @@ function bmiCalc() {
   // Esconde a tabela
   showHide.classList.remove("hide");
 
+  // Convertendo CM para Metros
   if (heightEl.value > 3) {
     heightEl.value = Number(heightEl.value) / 100;
   }
